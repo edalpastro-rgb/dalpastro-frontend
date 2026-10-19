@@ -1,0 +1,155 @@
+{
+  "expo": {
+    "name": "AdvisorOS",
+    "slug": "AdvisorOS",
+    "version": "2.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "frontend",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.emergent.consulenteapp.zkleir",
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "Sblocca rapidamente Dal Pastro CRM",
+        "NSPhotoLibraryUsageDescription": "Aggiungi immagini motivazionali al tuo spazio personale",
+        "NSCameraUsageDescription": "Scatta foto e scansiona bollette e QR",
+        "NSMicrophoneUsageDescription": "Parla con AxonOS e registra note vocali",
+        "UIBackgroundModes": [
+          "audio",
+          "location"
+        ],
+        "NSSpeechRecognitionUsageDescription": "Trascrive sul telefono i comandi vocali per Axon",
+        "NSContactsUsageDescription": "Importa i contatti dalla tua rubrica",
+        "NSLocationWhenInUseUsageDescription": "Meteo, mappa clienti e percorsi dalla tua posizione",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Rileva automaticamente le visite ai clienti"
+      }
+    },
+    "android": {
+      "allowBackup": false,
+      "googleServicesFile": "./google-services.json",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#000000"
+      },
+      "edgeToEdgeEnabled": true,
+      "softwareKeyboardLayoutMode": "resize",
+      "package": "com.emergent.consulenteapp.zkleir",
+      "versionCode": 17,
+      "permissions": [
+        "CAMERA",
+        "POST_NOTIFICATIONS",
+        "USE_BIOMETRIC",
+        "USE_FINGERPRINT",
+        "VIBRATE",
+        "RECEIVE_BOOT_COMPLETED",
+        "MODIFY_AUDIO_SETTINGS",
+        "RECORD_AUDIO",
+        "FOREGROUND_SERVICE",
+        "FOREGROUND_SERVICE_MICROPHONE",
+        "READ_CONTACTS",
+        "WRITE_CONTACTS",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION",
+        "FOREGROUND_SERVICE_LOCATION",
+        "SYSTEM_ALERT_WINDOW"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-location",
+        {
+          "isAndroidBackgroundLocationEnabled": true,
+          "locationAlwaysAndWhenInUsePermission": "Rileva automaticamente le visite ai clienti"
+        }
+      ],
+      "expo-task-manager",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-image.png",
+          "imageWidth": 220,
+          "resizeMode": "contain",
+          "backgroundColor": "#0F2438"
+        }
+      ],
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "Parla con AxonOS e registra note vocali",
+          "enableBackgroundRecording": true
+        }
+      ],
+      "@react-native-community/datetimepicker",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Scatta foto e scansiona bollette e QR",
+          "android": {
+            "permissions": [
+              "CAMERA"
+            ]
+          }
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Aggiungi immagini ai tuoi contatti e bollette",
+          "cameraPermission": "Scatta foto per aggiungerle ai contatti"
+        }
+      ],
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Sblocca rapidamente Dal Pastro CRM"
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/icon.png",
+          "color": "#EA580C",
+          "sounds": ["./assets/sounds/find_phone.wav", "./assets/sounds/alarm_classic.wav", "./assets/sounds/alarm_gentle.wav", "./assets/sounds/alarm_energic.wav", "./assets/sounds/alarm_chirp.wav", "./assets/sounds/alarm_beep.wav"]
+        }
+      ],
+      "expo-asset",
+      [
+        "expo-build-properties",
+        {
+          "android": {}
+        }
+      ],
+      "./plugins/withCameraPermission.js",
+      [
+        "react-native-document-scanner-plugin",
+        {
+          "cameraPermission": "Scansiona documenti con ritaglio automatico"
+        }
+      ],
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "Di' «Viola» e parla con Axon a mani libere",
+          "speechRecognitionPermission": "Trascrive sul telefono i comandi vocali per Axon",
+          "androidSpeechServicePackages": [
+            "com.google.android.googlequicksearchbox"
+          ]
+        }
+      ],
+      "./plugins/withViolaWakeService.js",
+      "./plugins/withAxonWakeAudio.js"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
